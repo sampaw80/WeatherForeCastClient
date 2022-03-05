@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
+  weatherMode = false;
 
   constructor() { }
 
@@ -22,4 +23,11 @@ export class HomeComponent implements OnInit {
     this.registerMode = event;
   }
 
+  weatherToggle() {
+    this.weatherMode = !this.weatherMode;
+  }
+
+  cancelweatherMode(event: boolean) {
+    this.weatherMode = event;
+  }
 }

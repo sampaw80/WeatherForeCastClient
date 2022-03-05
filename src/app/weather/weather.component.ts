@@ -25,4 +25,5 @@ export class WeatherComponent implements OnInit {
     //   console.log(error);
     // })
   }
+  
 }

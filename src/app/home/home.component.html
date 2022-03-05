@@ -4,7 +4,7 @@
         <p class="lead">Come on in to view your weather... </p>
         <div class="text-center">
             <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
-            <button class="btn btn-info btn-lg">Check Weather</button>
+            <button (click)="weatherToggle()"class="btn btn-info btn-lg">Check Weather</button>
         </div>
     </div>
 
@@ -15,10 +15,10 @@
             </div>
         </div>
     </div>
-    <div *ngIf="registerMode" class="container">
+    <div *ngIf="weatherMode" class="container">
         <div class="row justify-content-center">
             <div class="col-4">
-                <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
+                <app-weather (cancelSearch)="cancelweatherMode($event)" ></app-weather>
             </div>
         </div>
     </div>
