@@ -1,12 +1,14 @@
+<br><br>
+<h5 class="text-center text-primary">Find weather in your area</h5>
+<hr>
+<div class="form-group">
+ 
+    <input type="text" id="city" class="form-control" placeholder="Type city here.." #chosenCity />
+    <input type="button" class="btn btn-success mr-2" value="Search" (click)="getWeather(chosenCity.value)" />
+</div>
 
-<h1>Weather check</h1>
-
-<label for="city">City</label>
-<input type="text" id="city" #chosenCity />
-<input type="button" value="Get Weather" (click)="getWeather(chosenCity.value)" />
-
-<div *ngIf="weather">
-    <h3>Weather for {{weather.city}}</h3>
+<div *ngIf="weather" class="form-group">
+    <h5>Weather for {{weather.city}}</h5>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>

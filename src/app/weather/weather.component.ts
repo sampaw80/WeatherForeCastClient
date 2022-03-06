@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-weather',
@@ -12,7 +13,7 @@ export class WeatherComponent implements OnInit {
   weather: any;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public accountService: AccountService) {
   }
   public getWeather(chosenCity: string) {
     this.http.get('https://localhost:44363/api/SearchWeather/' + chosenCity).subscribe(result => {
