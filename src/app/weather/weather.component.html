@@ -1,14 +1,24 @@
-<form #registerForm="ngForm" (ngSubmit)="search()" autocomplete="off">
-    <h2 class="text-center text-primary">Type city name here</h2>
-    <hr>
-    <div class="form-group">
-        <input type="text" class="form-control" name="city" 
-            [(ngModel)]="model.Username" placeholder="City Name"  >
-    </div>
 
-   
-    <div class="form-group text-center">
-        <button class="btn btn-success mr-2" type="submit">Find</button>
-        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
-    </div>
-</form>
+<h1>Weather check</h1>
+
+<label for="city">City</label>
+<input type="text" id="city" #chosenCity />
+<input type="button" value="Get Weather" (click)="getWeather(chosenCity.value)" />
+
+<div *ngIf="weather">
+    <h3>Weather for {{weather.city}}</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Temp</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{weather.temp}}</td>
+                <td>{{weather.summary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

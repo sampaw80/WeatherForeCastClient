@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AccountService } from '../_services/account.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-weather',
@@ -9,21 +9,22 @@ import { AccountService } from '../_services/account.service';
 export class WeatherComponent implements OnInit {
   @Output() cancelSearch = new EventEmitter();
   model: any = {};
+  weather: any;
 
-  constructor(private accountService: AccountService) { }
+
+  constructor(private http: HttpClient) {
+  }
+  public getWeather(chosenCity: string) {
+    this.http.get('https://localhost:44363/api/SearchWeather/' + chosenCity).subscribe(result => {
+      this.weather = result;
+      
+    });
+}
 
   ngOnInit(): void {
   }
   cancel() {
     this.cancelSearch.emit(false);
-  }
-  search() {
-    // this.accountService.register(this.model).subscribe(response => {
-    //   console.log(response);
-    //   this.cancel();
-    // }, error => {
-    //   console.log(error);
-    // })
   }
   
 }
