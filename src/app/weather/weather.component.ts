@@ -16,7 +16,7 @@ export class WeatherComponent implements OnInit {
   constructor(private http: HttpClient, public accountService: AccountService) {
   }
   public getWeather(chosenCity: string) {
-    this.http.get('https://localhost:44363/api/SearchWeather/' + chosenCity).subscribe(result => {
+    this.http.get('https://weatherapp-api.azurewebsites.net/api/' + chosenCity).subscribe(result => {
       this.weather = result;
       
     });

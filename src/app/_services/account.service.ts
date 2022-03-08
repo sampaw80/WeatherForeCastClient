@@ -8,7 +8,9 @@ import { ReplaySubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:44363/api/';
+ // baseUrl = 'https://localhost:44363/api/';
+ baseUrl = 'https://weatherapp-api.azurewebsites.net/api/';
+ 
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
